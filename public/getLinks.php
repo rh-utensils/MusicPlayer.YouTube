@@ -1,5 +1,11 @@
 <?php
 
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    header("Access-Control-Allow-Origin: https://music.hampoelz.net");
+    //header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET"); 
+} 
+
 require('../vendor/autoload.php');
 
 $url = isset($_GET['url']) ? $_GET['url'] : null;
@@ -11,10 +17,5 @@ if (!$url) {
 $youtube = new \YouTube\YouTubeDownloader();
 $links = $youtube->getDownloadLinks($url);
 
-$error = $youtube->getLastError();
-
 header('Content-Type: application/json');
-echo json_encode([
-    'links' => $links,
-    'error' => $error
-], JSON_PRETTY_PRINT);
+echo json_encode($links, JSON_PRETTY_PRINT);

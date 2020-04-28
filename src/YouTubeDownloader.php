@@ -16,11 +16,6 @@ class YouTubeDownloader
         $this->client = new Browser();
     }
 
-    public function getBrowser()
-    {
-        return $this->client;
-    }
-
     public function getLastError()
     {
         return $this->error;

@@ -1,7 +1,7 @@
 {
-	"name": "athlon1600/youtube-downloader",
-	"description": "PHP powered alternative for youtube-dl",
-	"keywords": ["youtube downloader", "download youtube", "download youtube videos"],
+	"name": "rh-utensils/musicplayer-youtube-downloader",
+	"description": "PHP YouTube video downloader for the RH Music Player PWA",
+	"homepage": "https://music.hampoelz.net/",
 	"license": "MIT",
 	"require": {
 		"php": "^5.6 || ^7.0",
@@ -15,13 +15,5 @@
 		"psr-4": {
 			"YouTube\\": "src/"
 		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"YouTube\\Tests\\": "tests"
-		}
-	},
-	"scripts": {
-		"test": "phpunit"
 	}
 }
