@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: https://music.hampoelz.net");
-    //header("Access-Control-Allow-Origin: *");
+    //header("Access-Control-Allow-Origin: https://music.hampoelz.net");
+    header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET"); 
 } 
 
@@ -16,6 +16,10 @@ if (!$url) {
 
 $youtube = new \YouTube\YouTubeDownloader();
 $links = $youtube->getDownloadLinks($url);
+
+if (empty($links)) {
+  die("Not Found");
+}
 
 header('Content-Type: application/json');
 echo json_encode($links, JSON_PRETTY_PRINT);
