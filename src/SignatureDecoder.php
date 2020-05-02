@@ -17,7 +17,7 @@ class SignatureDecoder
         $func_name = $this->parseFunctionName($js_code);
 
         // PHP instructions
-        $instructions = (array)$this->parseFunctionCode($func_name, $js_code);
+        $instructions = (array) $this->parseFunctionCode($func_name, $js_code);
 
         foreach ($instructions as $opt) {
 
@@ -29,7 +29,6 @@ class SignatureDecoder
                 $temp = $signature[0];
                 $signature[0] = $signature[$value % strlen($signature)];
                 $signature[$value] = $temp;
-
             } elseif ($command == 'splice') {
                 $signature = substr($signature, $value);
             } elseif ($command == 'reverse') {
@@ -47,7 +46,6 @@ class SignatureDecoder
             $func_name = preg_quote($func_name);
 
             return $func_name;
-
         } else if (preg_match('@\b([a-zA-Z0-9$]{2})\s*=\s*function\(\s*a\s*\)\s*{\s*a\s*=\s*a\.split\(\s*""\s*\)@is', $js_code, $matches)) {
             return preg_quote($matches[1]);
         }

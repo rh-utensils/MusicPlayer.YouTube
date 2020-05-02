@@ -85,7 +85,6 @@ class Browser
     // useful for checking for: 429 Too Many Requests
     public function getStatus($url)
     {
-
     }
 
     protected function getCacheKey($url)

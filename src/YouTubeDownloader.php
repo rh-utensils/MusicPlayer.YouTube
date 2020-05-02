@@ -168,7 +168,6 @@ class YouTubeDownloader
             }
 
             return $return;
-
         } catch (\Exception $exception) {
             // do nothing
         } catch (\Throwable $throwable) {
@@ -184,8 +183,10 @@ class YouTubeDownloader
 
         $page_html = $this->getPageHtml($video_id);
 
-        if (strpos($page_html, 'We have been receiving a large volume of requests') !== false ||
-            strpos($page_html, 'systems have detected unusual traffic') !== false) {
+        if (
+            strpos($page_html, 'We have been receiving a large volume of requests') !== false ||
+            strpos($page_html, 'systems have detected unusual traffic') !== false
+        ) {
 
             $this->error = 'HTTP 429: Too many requests.';
 

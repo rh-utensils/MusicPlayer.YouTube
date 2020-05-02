@@ -31,7 +31,6 @@ class YoutubeStreamer
                 $this->headers_sent = true;
                 $this->sendHeader(rtrim($data));
             }
-
         } else {
 
             // only headers we wish to forward back to the client
