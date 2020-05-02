@@ -15,5 +15,13 @@
 		"psr-4": {
 			"YouTube\\": "src/"
 		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"YouTube\\Tests\\": "tests"
+		}
+	},
+	"scripts": {
+		"test": "phpunit"
 	}
 }
